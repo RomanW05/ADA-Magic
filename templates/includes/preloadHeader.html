@@ -1,0 +1,118 @@
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+
+              <img src="{{url_for('static', filename='images/logo.png')}}" alt="Cardano Magic NFT Marketplace">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="/dashboard" class="active">Home</a></li>
+              {% if info %}<a href='#'>{{ info[0] }}: {{ '%0.6f'| format(info[1] / 1000000|float) }} ₳</a>{% endif %}
+              <li class="scroll-to-section"><a href="/mint">Mint</a></li>
+              <li class="scroll-to-section"><a href="/adjust">Portfolio</a></li>
+              <li class="scroll-to-section"><a href="/FAQ">FAQ</a></li>
+              <li class="scroll-to-section"><a href="/about">About us</a></li>
+              {% if info %}<li class="scroll-to-section"><a href="/logout">Logout</a></li>
+              {% else %}
+              <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In or Up</a></div></li>
+              {% endif %}
+              
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  
+    <div id="modal" class="popupContainer" style="display:none;">
+    <div class="popupHeader">
+        <span class="header_title">Login</span>
+        <span class="modal_close"><i class="fa fa-times"></i></span>
+    </div>
+
+    <section class="popupBody">
+        <!-- Social Login -->
+        <div class="social_login">
+            <div class="centeredText">
+                <span>Would you like to login or create a new account?</span>
+            </div>
+
+            <div class="action_btns">
+                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+            </div>
+        </div>
+
+        <!-- Username & Password Login form -->
+        <div class="user_login" action="/login2" method=post >
+            <form>
+                <label>Email / Username</label>
+                <input type="text" />
+                <br />
+
+                <label>Password</label>
+                <input type="password" />
+                <br />
+                
+                <input type="checkbox" onclick="showPassword()">Show Password
+                 <br />
+                 
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                    <div class="one_half last"><input type="submit" value="Login" class="btn btn_red" /></div>
+                </div>
+            </form>
+
+            <a href="#" class="forgot_password">Forgot password?</a>
+        </div>
+
+        <!-- Register Form -->
+        <div class="user_register">
+            <form action="/newUserCreation" method=post >
+                Once you verify the account you will be able to enter a new password
+
+                <label>Username</label>
+                <input type="text" name="username" placeholder='username' />
+                <br />
+
+                <label>Email address</label>
+                <input type="text" name="email" placeholder='email' />
+                <br />
+
+                <div class="checkbox">
+                    <input id="send_updates" type="checkbox" />
+                    <label for="send_updates">Send me occasional email updates</label>
+                </div>
+
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                    <div class="one_half last"><input type="submit" value="Register" class="btn btn_red" /></div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

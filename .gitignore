@@ -1,0 +1,10 @@
+.env
+.vscode
+.well-known
+__pycache__/
+flask_session/
+attacks/
+temp/
+app.py
+app_giga.py
+app - Copy.py

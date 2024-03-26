@@ -1,0 +1,239 @@
+{% include '/includes/giga_head.html' %}
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+            
+            <!-- section begin -->
+            <section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+                    <div class="center-y relative text-center">
+                        <div class="container">
+                            <div class="row">                                
+                                <div class="col-md-12 text-center">
+                                    <h1>Edit Profile</h1>
+                                    {% if msg %}<h2>{{ msg }}</h2>{% endif %}
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+            <section id="section-main" aria-label="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <form id="form-create-item" class="form-border" method="post" action="/update_user_profile"  enctype="multipart/form-data" onsubmit="return validate()">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                                <div class="de_tab tab_simple">
+                            
+                                <ul class="de_nav">
+                                    <li class="active"><a href="/profile/{{ username }}"><span><i class="fa fa-user"></i>Profile</span></a></li>
+<!--                                     <li><span><i class="fa fa-exclamation-circle"></i>Notifications</span></li>
+                                    <li><span><i class="fa fa-paint-brush"></i>Appearance</span></li> -->
+                                </ul>
+                                <input type="hidden" name="username_modify" value="{{ username }}">
+                                <div class="de_tab_content">                            
+                                    <div class="tab-1">
+                                        <div class="row wow fadeIn">
+                                            <div class="col-lg-8 mb-sm-20">
+                                                    <div class="field-set">
+                                                        <h5>Upload profile picture</h5>
+                                                        <div class="d-create-file">
+                                                            <p id="file_name">Optimal size: 200x200. PNG, JPG. Max 1mb.</p>
+                                                            <input type="button" id="get_file" class="btn-main" value="Browse">
+                                                            <input type="file" name="file" id="upload_file">
+                                                        </div>
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5>Upload banner picture</h5>
+                                                        <div class="d-create-file">
+                                                            <p id="file_name">PNG, JPG. Max 1mb.</p>
+                                                            <input type="button" id="get_file2" class="btn-main" value="Browse">
+                                                            <input type="file" name="file_banner" id="upload_file2" hidden>
+                                                        </div>
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5>Artist name</h5>
+                                                        <input type="text" name="alias" id="alias" class="form-control" placeholder="Enter username" value="{{ user_profile['alias'] }}"/>                                    
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5>Title</h5>
+                                                        <input type="text" name="title" id="title" class="form-control" placeholder="e.g. Fine arts student" value="{{ user_profile['title'] }}"/>
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5>Bio</h5>
+                                                        <span id="desc_length">Characters left: 500</span>
+                                                        <textarea name="description" id="bio" class="form-control" placeholder="Tell the world who you are!">{{ user_profile['description'] }}</textarea>
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5><i class="fa-brands fa-firefox"></i>Website URL</h5>
+                                                        <input type="text" name="website" id="custom_url" class="form-control" placeholder="Enter your custom URL" value="{{ user_profile['website'] }}"/>
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5><i class="fa-brands fa-twitter-square"></i>Twitter username</h5>
+                                                        https://twitter.com/<input type="text" name="twitter" id="twitter_username" class="form-control" placeholder="Twitter username" value="{{ user_profile['twitter'] }}"/>
+
+                                                        <div class="spacer-20"></div>
+
+                                                        <h5><i class="fa-brands fa-instagram-square"></i>Instagram username</h5>
+                                                        <div class="d-inline p-2"> https://www.instagram.com/<input type="text" name="instagram" id="instagram_username" class="d-inline form-control" placeholder="Enter Instagram username" value="{{ user_profile['instagram'] }}"/></div>
+                                                        
+                                                        <div class="spacer-20"></div>
+
+                                                        ><h5><i class="fa-brands fa-discord"></i>Discord</h5>
+                                                        <input type="text" name="discord_invite" id="discord_url" class="form-control" placeholder="Cardano Magic#8471" value="{{ user_profile['discord_invite'] }}"/>
+
+                                                        <div class="spacer-20"></div>
+
+                                                    </div>
+                                            </div>
+
+                                            <div id="sidebar" class="col-lg-4">
+                                                <h5>Profile image <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 200 x 200. Max size: 1MB. Click the image to upload."></i></h5>
+                                                <img id="image_prev" height="200" class="lazy nft__item_preview" alt="" style="display: inline;">
+
+                                                <div class="spacer-30"></div>
+
+                                                <h5>Profile banner <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 1500 x 200. Max size: 1MB. Click the image to upload."></i></h5>
+                                                <img id="image_prev2" height="200" class="lazy nft__item_preview" alt="" style="display: inline;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spacer-30"></div>
+                            <input type="submit" id="submit" class="btn-main" value="Update profile">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- content close -->
+
+        <a href="#" id="back-to-top"></a>
+        <script type="text/javascript">
+function validate(){
+
+    var description = document.getElementById('bio').value;
+    var alias = document.getElementById('alias').value;
+    var title = document.getElementById('title').value;
+    var website_url = document.getElementById('custom_url').value;
+    var discord_url = document.getElementById('discord_url').value;
+    var instagram = document.getElementById('instagram_username').value;
+    var twitter = document.getElementById('twitter_username').value;
+    
+    if (alias == null || alias == "") {
+      document.getElementsByName('artist')[0].placeholder='Artist Name';
+      alert("Please, introduce your alias/artist name");
+      return false;
+    }
+
+    if (alias.length > 64) {
+            alert('Please, enter your alias/artist name, max 64 charcters');
+            return false;
+        }
+
+
+    if (title != ''){
+        if (!title.match(/[a-z0-9\n!-+=.,;:?\n]/i)) {
+            alert('Please, include in the title field only characters from a-z, digits from 0-9 and punctuation marks such as: ,.?!()-+= ');
+            return false;
+            }
+        if (title.length > 64) {
+            alert('Please, enter your Title, max 64 charcters');
+            return false;
+        }
+    }
+
+    if (website_url != ''){
+        if (!website_url.match(/[a-z0-9\n!-+=.,;:?\n]/i)) {
+            alert('Please, include in the website URL field only characters from a-z, digits from 0-9 and punctuation marks such as: ,.?!()-+= ');
+            return false;
+            }
+    }
+
+    if (discord_url != ''){
+        if (!discord_url.match(/[a-z0-9\n!-+=.,;:?\n#]/i)) {
+            alert('Please, include in the discord URL field characters from a-z, digits from 0-9 and punctuation marks such as: ,.?!()-+=# ');
+            return false;
+            }
+    }
+
+    if (instagram != ''){
+        if (!instagram.match(/[a-z0-9A-Z_]/i)) {
+            alert('Please, include in the Instagram field only characters from a-z, digits from 0-9 and punctuation marks such as: "_" ');
+            return false;
+            }
+        if (instagram.length > 64) {
+            alert('Please, enter your Instagram username, max 64 charcters');
+            return false;
+        }
+    }
+
+    if (twitter != ''){
+        if (!twitter.match(/[a-zA-Z0-9_]/i)) {
+            alert('Please, include in the Twitter field only characters from a-z, digits from 0-9 and punctuation marks such as: _ ');
+            return false;
+            }
+        if (twitter.length > 64) {
+            alert('Please, enter your Twitter username, max 64 charcters');
+            return false;
+        }
+    }
+
+    if (description != ''){
+        if (!description.match(/[a-z0-9\n!-+=.,;:?\n]/i)) {
+            alert('Please, include in the Bio field characters from a-z, digits from 0-9 and punctuation marks such as: ,.?!()-+= ');
+            return false;
+            }
+        if (description.length > 500) {
+            alert('Please, enter a brief Bio description of 500 charcters maximum');
+            return false;
+        }
+    }
+    return true
+};
+        </script>
+
+  <script>
+    document.getElementById('bio').onchange = function () {
+    document.getElementById('desc_length').innerHTML = "Characters left: " + (500 - this.value.length);
+    if (500 - this.value.length < 0){
+        document.getElementById('desc_length').style.color = "red" 
+    }
+    else{
+        document.getElementById('desc_length').style.color = "grey";
+    }
+};
+  </script>
+  <script type="text/javascript">
+    document.getElementById('upload_file').onchange = function () {
+    var src = URL.createObjectURL(this.files[0]);
+    document.getElementById('image_prev').src = src;
+  }
+
+  document.getElementById('upload_file2').onchange = function () {
+    var src = URL.createObjectURL(this.files[0]);
+    document.getElementById('image_prev2').src = src;
+  }
+
+  </script>
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

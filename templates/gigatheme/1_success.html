@@ -1,0 +1,42 @@
+{% include '/includes/giga_head.html' %}
+
+    <div id="wrapper">
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+
+                <div class="center-y relative text-center" data-scroll-speed="4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                            <div class="col text-center">
+                                <div class="spacer-single"></div>
+
+                                    <h1>Success!</h1>
+                                {% if msg %}<br /><p style="font-size: 150%;">{{msg}}</p>{% endif %}
+
+                                <div class="spacer-20"></div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- section close -->
+
+        </div>
+        <!-- content close -->
+
+        <a href="#" id="back-to-top"></a>
+        
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

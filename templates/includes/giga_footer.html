@@ -1,0 +1,82 @@
+<footer class="footer-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-1">
+                <div class="widget">
+                    <h5>General</h5>
+                    <ul>
+                        <li><a href="/about_us">About us</a></li>
+                        <li><a href="/contact_us">Contact us</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/terms_and_conditions">Terms and conditions</a></li>
+                        <li><a href="/privacy_policy">Privacy policy</a></li>
+                        <li><a href="/cookie_policy">Cookie policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-1">
+                <div class="widget">
+                    <h5>Technology</h5>
+                    <ul>
+                        <li><a href="/technology">Technology (in progress)</a></li>
+                        <li><a href="/roadmap">Roadmap (in progress)</a></li>
+                        <li><a href="/whitepaper">Whitepaper (in progress)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-1">
+                <div class="widget">
+                    <h5>Newsletter</h5>
+                    <p>Signup for our newsletter to get the latest news in your inbox.</p>
+                    <form action="/newsletter" class="row form-dark" id="form_subscribe" method="post" name="form_subscribe">
+                        <div class="col text-center">
+                            <input class="form-control" id="txt_subscribe" name="address" placeholder="enter your email" type="text" />
+                            <a id="btn-subscribe" class="submit"><i class="fa fa-long-arrow-right bg-color-secondary"></i></a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                    <div class="spacer-10"></div>
+                    <small>Your email is safe with us. We don't spam.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="de-flex">
+                        <div class="de-flex-col">
+                            <div class="social-icons">
+                                Follow us!
+                                <a href="https://twitter.com/ada_magic_io"><i class="fa-brands fa-twitter-square"></i></a>
+                                <a href="https://www.instagram.com/adamagicio/"><i class="fa-brands fa-instagram-square"></i></a>
+                                <a href="https://discord.gg/YtxH2nP5Uf"><i class="fa-brands fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer close -->
+<script>
+    const myForm = document.getElementById("form_subscribe");
+    document.querySelector(".submit").addEventListener("click", function(){
+    
+      myForm.submit();
+
+});
+</script>
+    <!-- Javascript Files
+    ================================================== -->
+    <script type="text/javascript">{% include '/gigatheme/js/plugins.js' %}</script>
+    <script type="text/javascript">{% include '/gigatheme/js/designesia.js' %}</script>
+    <script type="text/javascript">{% include '/gigatheme/js/particles.js' %}</script>
+    <script type="text/javascript">{% include '/gigatheme/js/particles-settings-2.js' %}</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+{% include '/includes/giga_head.html' %}
+<style>
+    th {
+  padding: 15px;
+}
+</style>
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+            </section>
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row">
+                        <img src="users/{{ data['username'] }}/{{ data['collection_name'] }}/banner.png" class="col-md-12" alt="" style="max-height: 200px; width: auto; display: block;
+  margin-left: auto;
+  margin-right: auto;" onerror="$(this).hide();"/>
+
+                        <img src="users/{{ data['username'] }}/{{ data['collection_name'] }}/single_nft.png" class="lazy nft__item_preview" alt="" style="border-radius: 100%;
+                        -moz-border-radius: 100%;
+                        -webkit-border-radius: 100%;
+                        width: 150px;
+                        height: auto; text-align: left;" />
+            <div class="spacer-20"></div>
+
+
+                        <h2 style="display: inline; text-align: center;">{{ data['collection_name'] }}</h2>
+                        <div class="spacer-20"></div>
+
+                        <h3>Artist: <a href="/profile/{{ data['username'] }}">{{ data['username'] }}</a></h3>
+                        <div class="spacer-20"></div>
+
+                        <table style="display: inline; text-align: center;">
+                            <thead>
+                                <th>
+                                    <b>Total pieces</b>
+                                </th>
+                                <th>
+                                    <b>Sold pieces</b>
+                                </th>
+                                <th>
+                                    <b>Ceil price</b>
+                                </th>
+                                <th>
+                                    <b>Floor price</b>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <td>
+                                    {{ data['total'] }}
+                                </td>
+                                <td>
+                                    {{ data['sold'] }}
+                                </td>
+                                <td>
+                                    {{ data['ceil'] }} <img src="/templates/gigatheme/images/cardano.png" onerror="$(this).hide();" alt="Cardano logo"></h2>
+                                </td>
+                                <td>
+                                    {{ data['floor'] }} <img src="/templates/gigatheme/images/cardano.png" onerror="$(this).hide();" alt="Cardano logo"></h2>
+                                </td>
+                            </tbody>
+
+                        </table>
+                        <div class="spacer-20"></div>
+
+                        <div class="col-md-12">
+                            <div class="de_tab tab_simple">
+                                <div class="de_tab_content">
+                                    <div class="tab-1">
+                                        <div class="row">
+                                            <div style="display: inline-block;">
+                                                <h3 class="col-md-6">Artworks:</h3>
+                                            </div>
+                                            
+                                            <div class="spacer-20"></div>
+                                            <div class="spacer-20"></div>
+                                                {% for key, nft in collection.items() %}
+                                                    <!-- nft item begin -->
+                                                    {% include '/includes/1_nft_card_profile.html' %}
+                                                {% endfor %}              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% for key, nft in collection.items() %}
+<div class="modal fade" id="buy_now{{ nft['internal_id'] }}" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered de-modal">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <div class="p-3 form-border">
+                    <h3>Checkout</h3>
+                    You are about to purchase "<b>{{nft["nft_name"]}}</b>" from <b>{{nft["artist"]}}</b>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div>Please, deposite the exact amount of: <b>{{nft["price"]}}</b> ADA into this address:</div>
+                    </div>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex wallet_display" id='{{ nft["deposit_wallet"] }}' onclick="my_function({{nft['deposit_wallet']}})">
+                        <b>{{nft["deposit_wallet"]}}</b>
+                    </div>
+                    <div class="spacer-single"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

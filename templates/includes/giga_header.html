@@ -1,0 +1,102 @@
+<header id="header_id" class="transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="de-flex sm-pt10">
+                    <div class="de-flex-col">
+                        <div class="de-flex-col">
+                            <!-- logo begin -->
+                            <div id="logo">
+                                <a href="/">
+                                    <img alt="ADA Magic Marketplace logo" onerror="$(this).hide();" class="logo" src="/templates/gigatheme/images/adamagic_logo.png" />
+                                    <img alt="ADA Magic Marketplace logo" onerror="$(this).hide();" class="logo-2" src="/templates/gigatheme/images/adamagic_logo_revert.png" />
+                                </a>
+                            </div>
+                            <!-- logo close -->
+                        </div>
+                    </div>
+                    <div class="de-flex-col header-col-mid">
+                        <!-- mainmenu begin -->
+                        <ul id="mainmenu">
+                                {% if username %}
+                                <a>{{ username }}</a>
+                                {% endif %}
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/explore/0">Explore</a>
+                                </li>
+                                <li>
+                                    <a href="#">Pages</a>
+                                    <ul>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/mint">Mint</a></li>
+                                        <!-- <li><a href="/vending_m">Vending Machine</a></li> -->
+                                        <li><a href="/about_us">About us</a></li>
+                                        <li><a href="/contact_us">Contact us</a></li>
+                                        <li><a href="/faq">FAQ</a></li>
+                                        {% if username %}
+                                        <li><a href="/profile/{{ username }}">Profile</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </li>                                    
+                                <li>
+                                    <a href="/about_us">About us</a>
+                                </li>
+                                <li>
+                                    <a href="/faq">FAQ</a>
+                                </li>
+                                {% if username %}
+                                <li>
+                                   <a href="/profile/{{ username }}">Profile</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        {% if user_profile %}
+                        <div class="menu_side_area" style="background-size: cover;">
+                            <div class="de-login-menu" style="background-size: cover;">
+                                <a href="/mint" class="btn-main btn-wallet"><i class="fa-solid fa-wallet"></i><span>Create</span></a>
+
+
+                                <span id="de-click-menu-profile" class="de-menu-profile">                           
+                                    <img src="data:image/png;base64,{{user_profile['profile_pic']}}" onerror="$(this).hide();" class="img-fluid" alt="Profile image from the user {{ user_profile['username'] }}">
+                                </span>
+
+                                <div id="de-submenu-profile" class="de-submenu" style="display: none; background-size: cover;">
+                                    <div class="d-name" style="background-size: cover;">
+                                        <h4>{{ user_profile["alias"] }}</h4>
+                                    </div>
+                                    <div class="spacer-10" style="background-size: cover;"></div>
+
+                                    <div class="d-line" style="background-size: cover;"></div>
+
+                                    <ul class="de-submenu-profile">
+                                        <li><a href="/profile/{{ user_profile['username'] }}"><i class="fa fa-user"></i> My profile</a></li>
+                                        <li><a href="/edit_profile/{{ user_profile['username'] }}"><i class="fa fa-pencil"></i> Edit profile</a></li>
+                                        <li><a href="/logout"><i class="fa fa-sign-out"></i> Sign out</a></li>
+                                    </ul>
+                                </div>
+                                <span id="menu-btn"></span>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="menu_side_area" style="background-size: cover;">
+                            <div class="de-login-menu" style="background-size: cover;">
+                                <a href="/login" class="btn-main btn-wallet"><i class="fa-solid fa-wallet"></i><span>Login</span></a>
+                                <span id="menu-btn"></span>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="search_menu"  class="col-xs-6 .col-sm-4" style="display: inline-block;">
+            <form method="post" action="/search/0" >
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+            <input id="quick_search" name="query" placeholder="search item here..." type="text" />
+            </form>
+        </div>
+    </div>
+</header>

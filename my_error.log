@@ -1,0 +1,825 @@
+2022-09-12 20:35:14.275136 | 23:35 | Monday,12,Sep,2022 expected token ',', got 'username' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3801, in profile
+    resp = make_response(render_template('/gigatheme/1_profile.html', profile_data=profile_data,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_profile.html", line 18, in template
+    <img src="{{ url_for('users/user_profile_view['username']', filename='banner.png') }}" >
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'username'
+
+2022-09-12 20:36:02.908897 | 23:36 | Monday,12,Sep,2022 expected token ',', got 'user_profile_view' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3801, in profile
+    resp = make_response(render_template('/gigatheme/1_profile.html', profile_data=profile_data,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_profile.html", line 18, in template
+    <img src="{{ url_for('users/'user_profile_view['username'], filename='banner.png') }}" >
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'user_profile_view'
+
+2022-09-12 20:36:33.967517 | 23:36 | Monday,12,Sep,2022 expected token ',', got 'user_profile_view' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3801, in profile
+    resp = make_response(render_template('/gigatheme/1_profile.html', profile_data=profile_data,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_profile.html", line 18, in template
+    <img src="{{ url_for('/users/'user_profile_view['username'], filename='banner.png') }}" >
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'user_profile_view'
+
+2022-09-12 21:32:42.292806 | new user registration | location not fetched | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 5409, in new_user
+    location = geolocator.reverse(f"{g.latlng[0]}, {g.latlng[1]}")
+IndexError: list index out of range
+
+2022-09-12 21:35:52.118159 | new user registration | location not fetched | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 5409, in new_user
+    location = geolocator.reverse(f"{g.latlng[0]}, {g.latlng[1]}")
+IndexError: list index out of range
+
+2022-09-12 21:37:20.124859 | 00:37 | Tuesday,13,Sep,2022 1062 (23000): Duplicate entry 'claro1' for key 'user_profile.username_UNIQUE' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'claro1' for key 'user_profile.username_UNIQUE'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 5518, in new_user_password
+    cursor.execute('''INSERT INTO user_profile (alias, username) VALUES (%s, %s)''', (session['username'], session['username']))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'claro1' for key 'user_profile.username_UNIQUE'
+
+2022-09-12 22:04:42.038774 | 01:04 | Tuesday,13,Sep,2022 unsupported operand type(s) for +: 'int' and 'str' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1707, in new_password_recover
+    composed_check = email + str(email_opt)
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+2022-09-12 22:06:43.917042 | 01:06 | Tuesday,13,Sep,2022 1054 (42S22): Unknown column 'old_time' in 'field list' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Unknown column 'old_time' in 'field list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1687, in new_password_recover
+    cursor.execute('''SELECT email, email_opt, is_valid, old_time FROM password_recovery WHERE email = %s''', (email,))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'old_time' in 'field list'
+
+2022-09-12 22:06:46.129121 | 01:06 | Tuesday,13,Sep,2022 1054 (42S22): Unknown column 'old_time' in 'field list' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Unknown column 'old_time' in 'field list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1687, in new_password_recover
+    cursor.execute('''SELECT email, email_opt, is_valid, old_time FROM password_recovery WHERE email = %s''', (email,))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'old_time' in 'field list'
+
+2022-09-12 22:07:07.859519 | 01:07 | Tuesday,13,Sep,2022 /gigatheme/type_new_password.html | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1717, in new_password_recover
+    return render_template("/gigatheme/type_new_password.html", hexadecimal=hexadecimal)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 59, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 95, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /gigatheme/type_new_password.html
+
+2022-09-12 22:08:47.755220 | 01:08 | Tuesday,13,Sep,2022 /gigatheme/1_type_new_password.html | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1717, in new_password_recover
+    return render_template("/gigatheme/1_type_new_password.html", hexadecimal=hexadecimal)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 59, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 95, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /gigatheme/1_type_new_password.html
+
+2022-09-12 22:08:50.129878 | 01:08 | Tuesday,13,Sep,2022 /gigatheme/1_type_new_password.html | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1717, in new_password_recover
+    return render_template("/gigatheme/1_type_new_password.html", hexadecimal=hexadecimal)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 59, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 95, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: /gigatheme/1_type_new_password.html
+
+2022-09-15 10:38:06.433059 | 13:38 | Thursday,15,Sep,2022 1136 (21S01): Column count doesn't match value count at row 1 | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Column count doesn't match value count at row 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 5343, in search
+    single_nfts, remembered_hearts, total_pages = load_all_single_nfts_search(items_per_page, current_page, query1, category1, ordered_by1)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 684, in load_all_single_nfts_search
+    cursor.execute('''INSERT INTO searches (query, category, ordered_by, asc_desc, ip, time_now) VALUES (%s%s%s%s%s%s)''', (query[:124], category, ordered_by, order, f'{request.remote_addr}', f'{datetime.datetime.utcnow()}'))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.DataError: 1136 (21S01): Column count doesn't match value count at row 1
+
+2022-09-15 10:40:34.930106 | 13:40 | Thursday,15,Sep,2022 1364 (HY000): Field 'location' doesn't have a default value | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Field 'location' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 5343, in search
+    single_nfts, remembered_hearts, total_pages = load_all_single_nfts_search(items_per_page, current_page, query1, category1, ordered_by1)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 684, in load_all_single_nfts_search
+    cursor.execute('''INSERT INTO searches (query, category, ordered_by, asc_desc, ip, time_now) VALUES (%s,%s,%s,%s,%s,%s)''', (query[:124], category, ordered_by, order, f'{request.remote_addr}', f'{datetime.datetime.utcnow()}'))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'location' doesn't have a default value
+
+2022-09-15 10:40:40.386515 | 13:40 | Thursday,15,Sep,2022 1364 (HY000): Field 'location' doesn't have a default value | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Field 'location' doesn't have a default value
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 5343, in search
+    single_nfts, remembered_hearts, total_pages = load_all_single_nfts_search(items_per_page, current_page, query1, category1, ordered_by1)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 684, in load_all_single_nfts_search
+    cursor.execute('''INSERT INTO searches (query, category, ordered_by, asc_desc, ip, time_now) VALUES (%s,%s,%s,%s,%s,%s)''', (query[:124], category, ordered_by, order, f'{request.remote_addr}', f'{datetime.datetime.utcnow()}'))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'location' doesn't have a default value
+
+2022-09-15 12:17:49.873204 | search_results_single_nft_json_search | tuple index out of range | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1062, in search_results_single_nft_json_search
+    "hearts": elem[7],
+IndexError: tuple index out of range
+
+2022-09-15 12:17:49.893206 | 15:17 | Thursday,15,Sep,2022 Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'. | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4913, in collections
+    return render_template('/gigatheme/1_single_collection.html', collection=collection,remembered_hearts=remembered_hearts,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_single_collection.html", line 81, in template
+    <b>{{nft["deposit_wallet"]}}</b>
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+
+2022-09-15 12:17:56.278463 | 15:17 | Thursday,15,Sep,2022 'NoneType' object is not subscriptable | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4911, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3348, in load_single_collection
+    data['policy_id'] = temp[1]
+TypeError: 'NoneType' object is not subscriptable
+
+2022-09-15 12:47:08.035826 | 15:47 | Thursday,15,Sep,2022 list index out of range | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4911, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3350, in load_single_collection
+    data['policy_id'] = results[0][7]
+IndexError: list index out of range
+
+2022-09-15 12:47:55.240045 | 15:47 | Thursday,15,Sep,2022 not enough values to unpack (expected 3, got 0) | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4912, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+ValueError: not enough values to unpack (expected 3, got 0)
+
+2022-09-15 12:47:56.140711 | 15:47 | Thursday,15,Sep,2022 not enough values to unpack (expected 3, got 0) | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4912, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+ValueError: not enough values to unpack (expected 3, got 0)
+
+2022-09-15 12:48:21.617873 | 15:48 | Thursday,15,Sep,2022 Can't compile non template nodes | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4912, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3350, in load_single_collection
+    return render_template_string(results)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 165, in render_template_string
+    return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1105, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 761, in compile
+    source = self._generate(source, name, filename, defer_init=defer_init)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 689, in _generate
+    return generate(  # type: ignore
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\compiler.py", line 112, in generate
+    raise TypeError("Can't compile non template nodes")
+TypeError: Can't compile non template nodes
+
+2022-09-15 12:48:22.617160 | 15:48 | Thursday,15,Sep,2022 Can't compile non template nodes | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4912, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3350, in load_single_collection
+    return render_template_string(results)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 165, in render_template_string
+    return _render(ctx.app.jinja_env.from_string(source), context, ctx.app)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1105, in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 761, in compile
+    source = self._generate(source, name, filename, defer_init=defer_init)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 689, in _generate
+    return generate(  # type: ignore
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\compiler.py", line 112, in generate
+    raise TypeError("Can't compile non template nodes")
+TypeError: Can't compile non template nodes
+
+2022-09-15 12:48:55.521960 | 15:48 | Thursday,15,Sep,2022 list index out of range | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4912, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3351, in load_single_collection
+    data['policy_id'] = results[0][7]
+IndexError: list index out of range
+
+2022-09-15 12:49:40.016882 | 15:49 | Thursday,15,Sep,2022 list index out of range | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4913, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3352, in load_single_collection
+    data['policy_id'] = results[0][7]
+IndexError: list index out of range
+
+2022-09-15 12:50:33.166027 | 15:50 | Thursday,15,Sep,2022 Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'. | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4928, in collections
+    return render_template('/gigatheme/1_single_collection.html', collection=collection,remembered_hearts=remembered_hearts,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 148, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_single_collection.html", line 81, in template
+    <b>{{nft["deposit_wallet"]}}</b>
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+
+2022-09-15 12:52:25.874237 | 15:52 | Thursday,15,Sep,2022 list index out of range | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4911, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3350, in load_single_collection
+    data['policy_id'] = results[0][7]
+IndexError: list index out of range
+
+2022-09-15 12:53:15.006946 | 15:53 | Thursday,15,Sep,2022 'user_profile_view' is undefined | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4927, in collections
+    return render_template('/gigatheme/1_single_collection.html', collection=collection,remembered_hearts=remembered_hearts,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_single_collection.html", line 29, in top-level template code
+    Floor price: {{user_profile_view["floor"]}} <img src="/templates/gigatheme/images/cardano.png" onerror="$(this).hide();" alt="Cardano logo">
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'user_profile_view' is undefined
+
+2022-09-15 12:54:44.952411 | 15:54 | Thursday,15,Sep,2022 'user_profile_view' is undefined | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4927, in collections
+    return render_template('/gigatheme/1_single_collection.html', collection=collection,remembered_hearts=remembered_hearts,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_single_collection.html", line 29, in top-level template code
+    Floor price: {{user_profile_view["floor"]}} <img src="/templates/gigatheme/images/cardano.png" onerror="$(this).hide();" alt="Cardano logo">
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'user_profile_view' is undefined
+
+2022-09-15 12:59:29.954686 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 12:59:30.026281 | 15:59 | Thursday,15,Sep,2022 'user_profile_view' is undefined | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4930, in collections
+    return render_template('/gigatheme/1_single_collection.html', collection=collection,remembered_hearts=remembered_hearts,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_single_collection.html", line 29, in top-level template code
+    Floor price: {{user_profile_view["floor"]}} <img src="/templates/gigatheme/images/cardano.png" onerror="$(this).hide();" alt="Cardano logo">
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'user_profile_view' is undefined
+
+2022-09-15 13:12:18.347233 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 13:13:07.990812 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 13:13:21.772987 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 13:33:37.392751 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 13:34:06.511471 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 13:34:24.944637 | search_results_single_nft_json_search | 'function' object is not iterable | Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 1056, in search_results_single_nft_json_search
+    for x, elem in enumerate(collections):
+TypeError: 'function' object is not iterable
+
+2022-09-15 13:42:24.649738 | 16:42 | Thursday,15,Sep,2022 'int' object is not subscriptable | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4915, in collections
+    collection, remembered_hearts, data = load_single_collection(collection_name, username)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 3356, in load_single_collection
+    sold = sold[0]
+TypeError: 'int' object is not subscriptable
+
+2022-09-15 14:05:50.985066 | 17:05 | Thursday,15,Sep,2022 'nft' is undefined | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 4926, in collections
+    return render_template('/gigatheme/1_single_collection.html', collection=collection,remembered_hearts=remembered_hearts,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\templating.py", line 128, in _render
+    rv = template.render(context)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\templates\gigatheme\1_single_collection.html", line 21, in top-level template code
+    <img src="users/{{ nft['username'] }}/{{ nft['collection_name'] }}/single_nft.png" />
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\jinja2\environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'nft' is undefined
+
+2022-09-15 18:04:07.029646 | 1054 (42S22): Unknown column 'None' in 'where clause' | could not load db | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Unknown column 'None' in 'where clause'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 802, in load_all_single_nfts_index
+    cursor.execute(f"SELECT COUNT(internal_id) FROM single_nfts WHERE deleted = '' AND issold=None")
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'None' in 'where clause'
+
+2022-09-15 18:04:19.379491 | 1054 (42S22): Unknown column 'none' in 'where clause' | could not load db | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Unknown column 'none' in 'where clause'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 802, in load_all_single_nfts_index
+    cursor.execute(f"SELECT COUNT(internal_id) FROM single_nfts WHERE deleted = '' AND issold=none")
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'none' in 'where clause'
+
+2022-09-25 13:25:28.015097 | 16:25 | Sunday,25,Sep,2022 'function' object has no attribute 'items' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6164, in q4
+    print(request.args.get.items())
+AttributeError: 'function' object has no attribute 'items'
+
+2022-09-25 13:25:42.395802 | 16:25 | Sunday,25,Sep,2022 get() missing 1 required positional argument: 'key' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6164, in q4
+    print(request.args.get().items())
+TypeError: get() missing 1 required positional argument: 'key'
+
+2022-09-25 13:25:54.308752 | 16:25 | Sunday,25,Sep,2022 get() missing 1 required positional argument: 'key' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6164, in q4
+    print(request.args.get())
+TypeError: get() missing 1 required positional argument: 'key'
+
+2022-09-25 13:27:21.816772 | 16:27 | Sunday,25,Sep,2022 get() missing 1 required positional argument: 'key' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6165, in q4
+    return f"{request.args.get()}"
+TypeError: get() missing 1 required positional argument: 'key'
+
+2022-09-25 13:27:42.832289 | 16:27 | Sunday,25,Sep,2022 get() missing 1 required positional argument: 'key' | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6164, in q4
+    data = request.args.get()
+TypeError: get() missing 1 required positional argument: 'key'
+
+2022-09-25 13:34:44.562559 | 16:34 | Sunday,25,Sep,2022 len() takes exactly one argument (0 given) | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6174, in q4
+    eses = '%s,' * len()
+TypeError: len() takes exactly one argument (0 given)
+
+2022-09-25 13:35:38.486291 | 16:35 | Sunday,25,Sep,2022 len() takes exactly one argument (0 given) | errorhandler
+ | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6174, in q4
+    eses = '%s,' * len()
+TypeError: len() takes exactly one argument (0 given)
+
+2022-09-25 13:39:34.811008 | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSTERT INTO single_nfts (
+        'internal_id',
+        'username',
+        'n' at line 1 |  | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSTERT INTO single_nfts (
+        'internal_id',
+        'username',
+        'n' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6177, in q4
+    cursor.execute('''INSTERT INTO single_nfts (
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSTERT INTO single_nfts (
+        'internal_id',
+        'username',
+        'n' at line 1
+
+2022-09-25 13:42:51.429520 | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSTERT INTO single_nfts ('internal_id','username','nft_name','artist','deposit_' at line 1 |  | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSTERT INTO single_nfts ('internal_id','username','nft_name','artist','deposit_' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6177, in q4
+    cursor.execute('''INSTERT INTO single_nfts ('internal_id','username','nft_name','artist','deposit_wallet','beneficiary_wallet','nft_image','nft_image_thumbnail','description','policy_id','price','qr_code','metadata','royalty_percentage','royalty_wallet','minted_so_far','featured','issold','code','deleted','policy_name','original_nft_name','full_size_image','using_old_policy','policy_duration','NFTID','selling_fees','hearts','views','blob_full','blob_thum','blob_main','category','hashtags','ip','location','creation_time','metadata_fields','file_type')
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSTERT INTO single_nfts ('internal_id','username','nft_name','artist','deposit_' at line 1
+
+2022-09-25 13:43:35.263280 | 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''internal_id','username','nft_name','artist','deposit_wallet','beneficiary_walle' at line 1 |  | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''internal_id','username','nft_name','artist','deposit_wallet','beneficiary_walle' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6177, in q4
+    cursor.execute('''INSERT INTO single_nfts ('internal_id','username','nft_name','artist','deposit_wallet','beneficiary_wallet','nft_image','nft_image_thumbnail','description','policy_id','price','qr_code','metadata','royalty_percentage','royalty_wallet','minted_so_far','featured','issold','code','deleted','policy_name','original_nft_name','full_size_image','using_old_policy','policy_duration','NFTID','selling_fees','hearts','views','blob_full','blob_thum','blob_main','category','hashtags','ip','location','creation_time','metadata_fields','file_type')
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''internal_id','username','nft_name','artist','deposit_wallet','beneficiary_walle' at line 1
+
+2022-09-25 13:44:51.570568 | 1406 (22001): Data too long for column 'beneficiary_wallet' at row 1 |  | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Data too long for column 'beneficiary_wallet' at row 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6177, in q4
+    cursor.execute('''INSERT INTO single_nfts (internal_id,username,nft_name,artist,deposit_wallet,beneficiary_wallet,nft_image,nft_image_thumbnail,description,policy_id,price,qr_code,metadata,royalty_percentage,royalty_wallet,minted_so_far,featured,issold,code,deleted,policy_name,original_nft_name,full_size_image,using_old_policy,policy_duration,NFTID,selling_fees,hearts,views,blob_full,blob_thum,blob_main,category,hashtags,ip,location,creation_time,metadata_fields,file_type)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'beneficiary_wallet' at row 1
+
+2022-09-25 13:45:45.570299 | 1406 (22001): Data too long for column 'royalty_wallet' at row 1 |  | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Data too long for column 'royalty_wallet' at row 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6177, in q4
+    cursor.execute('''INSERT INTO single_nfts (internal_id,username,nft_name,artist,deposit_wallet,beneficiary_wallet,nft_image,nft_image_thumbnail,description,policy_id,price,qr_code,metadata,royalty_percentage,royalty_wallet,minted_so_far,featured,issold,code,deleted,policy_name,original_nft_name,full_size_image,using_old_policy,policy_duration,NFTID,selling_fees,hearts,views,blob_full,blob_thum,blob_main,category,hashtags,ip,location,creation_time,metadata_fields,file_type)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.DataError: 1406 (22001): Data too long for column 'royalty_wallet' at row 1
+
+2022-09-25 13:46:18.509324 | 1062 (23000): Duplicate entry '10' for key 'single_nfts.PRIMARY' |  | Traceback (most recent call last):
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Duplicate entry '10' for key 'single_nfts.PRIMARY'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\yop\Desktop\proyects\ada_magic\website\app_giga_local.py", line 6177, in q4
+    cursor.execute('''INSERT INTO single_nfts (internal_id,username,nft_name,artist,deposit_wallet,beneficiary_wallet,nft_image,nft_image_thumbnail,description,policy_id,price,qr_code,metadata,royalty_percentage,royalty_wallet,minted_so_far,featured,issold,code,deleted,policy_name,original_nft_name,full_size_image,using_old_policy,policy_duration,NFTID,selling_fees,hearts,views,blob_full,blob_thum,blob_main,category,hashtags,ip,location,creation_time,metadata_fields,file_type)
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "C:\Users\yop\AppData\Local\Programs\Python\Python39\lib\site-packages\mysql\connector\connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry '10' for key 'single_nfts.PRIMARY'
+

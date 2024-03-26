@@ -1,0 +1,68 @@
+{% include '/includes/giga_head.html' %}
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+                <div class="center-y relative text-center">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-12 text-center">
+                                <h1>Artists</h1>
+                                {% if error %}
+                                <h2>{{ error }}</h2>
+                                {% endif %}
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="section-popular">
+                <div class="container">
+                    <div class="col">
+                        <div class="col-md-12 wow fadeIn">
+                            <ol class="author_list">
+                                {% for elem in artists %}
+                                <li>
+                                    <div class="author_list_pp">
+                                        <a href="/profile/{{ elem[0] }}">
+                                            <img class="lazy" src='/users/{{ elem[0] }}/profile_picture.png' onerror="$(this).hide();" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="author_list_info">
+                                        <a href="/profile/{{ elem[0] }}">{{ elem[0] }}</a>
+                                        <span>{{ elem[1]|int }} ADA</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer begin -->
+{% include '/includes/giga_footer.html' %}

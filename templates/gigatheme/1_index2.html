@@ -1,0 +1,232 @@
+{% include '/includes/giga_head.html' %}
+
+    <div id="wrapper">
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+                <div id="particles-js"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="text_top">
+                                <div class="spacer-double"></div>
+                                <h1>ADA Magic. The one-stop NFT marketplace for artists and collectors.</h1>
+                                <p class="lead">Create and sell your own unique NFTs.<br>Sign up and get started today.</p>
+                                <div class="spacer-20"></div>
+                                <a href="/explore/0" class="btn-main">Explore</a>&nbsp;&nbsp;
+                                <a href="/login" class="btn-main btn-white">Create</a>
+                                <div class="spacer-double"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{{single_nfts[0]}}
+            <!-- section featured nfts -->
+            <section id="section-nfts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>Featured artwork</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row wow fadeIn">
+                        {% for key, nft in single_nfts.items() %}
+                            {% include '/includes/1_nft_card22.html' %}
+                        <!-- nft item begin -->
+                        
+                        {% endfor %}
+                                             
+                    </div>
+                </div>
+            </section>
+
+            <!-- section latests nfts-->
+            <section id="section-nfts1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>Latest Items</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row wow fadeIn">
+                        {% for key, nft in latest.items() %}
+                            {% include '/includes/1_nft_card22.html' %}
+                        <!-- nft item begin -->
+                        
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <!-- section vending machine -->
+            <section id="section-collections" data-bgcolor="#F7F4FD">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>Hot Collections</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+                        <div id="collection-carousel" class="owl-carousel wow fadeIn">
+                            {% for key, nft in vending_machine.items() %}
+                                {% include '/includes/1_vending_machine_card22.html' %}
+                            {% endfor %}
+                                
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-popular">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>Top Sellers</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 wow fadeIn">
+                            <ol class="author_list">
+                                {% for elem in top_sellers %}
+                                <li>
+                                    <div class="author_list_pp">
+                                        <a href="/profile/{{ elem[2] }}">
+                                            <img class="lazy" src='data:image/png;base64, {{ elem[1] }}' alt="">
+                                        </a>
+                                    </div>
+                                    <div class="author_list_info">
+                                        <a href="/profile/{{ elem[2] }}">{{ elem[3] }}</a>
+                                        <span>{{ elem[0] }} ADA</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-steps" data-bgcolor="#F7F4FD">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>Create, sell and buy NFTs</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-sm-30">
+                            <div class="feature-box f-boxed style-3">
+                                <i class="fa-solid fa-wallet wow fadeInUp bg-color-2 i-boxed icon_wallet"></i>
+                                <div class="text">
+                                    <h4 class="wow fadeInUp">Sell your artwork</h4>
+                                    <p class="wow fadeInUp" data-wow-delay=".25s">Create an account, verify your email and start selling your pieces for free!</p>
+                                </div>
+                                <i class="wm fa-solid fa-wallet"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-sm-30">
+                            <div class="feature-box f-boxed style-3">
+                                <i class="wow fadeInUp bg-color-2 i-boxed fa-solid fa-cloud-arrow-up"></i>
+                                <div class="text">
+                                    <h4 class="wow fadeInUp">Buy your favourite NFT</h4>
+                                    <p class="wow fadeInUp" data-wow-delay=".25s">Browse and find an NFT you like. Send the money. The NFT is in your wallet!</p>
+                                </div>
+                                <i class="wm fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-sm-30">
+                            <div class="feature-box f-boxed style-3">
+                                <i class="wow fadeInUp bg-color-2 i-boxed fa-solid fa-gears"></i>
+                                <div class="text">
+                                    <h4 class="wow fadeInUp">Vending Machine</h4>
+                                    <p class="wow fadeInUp" data-wow-delay=".25s">Create and sell 10k collections by yourself. No developer needed, we are here for you.</p>
+                                </div>
+                                <i class="wm fa-solid fa-gears"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- content close -->
+
+        <a href="#" id="back-to-top"></a>
+        {% for key, nft in single_nfts.items() %}
+            <div class="modal fade" id="buy_now{{ nft['internal_id'] }}" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered de-modal">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <div class="p-3 form-border">
+                    <h3>Checkout</h3>
+                    You are about to purchase "<b>{{nft["nft_name"]}}</b>" from <b>{{nft["artist"]}}</b>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div>Please, deposite the exact amount of: <b>{{nft["price"]}}</b> ADA into this address:</div>
+                    </div>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex" style="justify-content: center;">
+                            <b>{{nft["address"][0:30]}}<br>
+                                {{nft["address"][30:60]}}<br>
+                                {{nft["address"][60:90]}}<br>
+                                {{nft["address"][90:120]}}<br>
+                                {{nft["address"][120:]}}<br>
+                                </b>
+                    </div>
+                    <div class="spacer-single"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endfor %}
+        {% for key, nft in latest.items() %}
+<div class="modal fade" id="buy_now{{ nft['internal_id'] }}" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered de-modal">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <div class="p-3 form-border">
+                    <h3>Checkout</h3>
+                    You are about to purchase "<b>{{nft["nft_name"]}}</b>" from <b>{{nft["artist"]}}</b>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div>Please, deposite the exact amount of: <b>{{nft["price"]}}</b> ADA into this address:</div>
+                    </div>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex" style="justify-content: center;">
+                            <b>{{nft["address"][0:30]}}<br>
+                                {{nft["address"][30:60]}}<br>
+                                {{nft["address"][60:90]}}<br>
+                                {{nft["address"][90:120]}}<br>
+                                {{nft["address"][120:]}}<br>
+                                </b>
+                    </div>
+                    <div class="spacer-single"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endfor %}
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

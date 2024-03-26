@@ -1,0 +1,76 @@
+{% include '/includes/giga_head.html' %}
+    <div id="wrapper">
+		
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+			<section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+                <div class="overlay-gradient t50">
+					<div class="center-y relative">
+						<div class="container">
+							<div class="row align-items-center">
+								<div class="col-lg-5 text-light wow fadeInRight" data-wow-delay=".5s">
+                                
+	                            {% if msg %}
+	                                <h2>{{ msg }}</h2>
+								{% else %}
+								<div class="spacer-10"></div>
+	                                <h1>Create, sell or collect digital items.</h1>
+                                {% endif %}
+                                
+                            </div>
+
+								<div class="col-lg-4 offset-lg-2 wow fadeIn" data-wow-delay=".5s">
+									<div class="box-rounded padding40" data-bgcolor="#ffffff">
+										<h3 class="mb10" style="color: black;">Sign In</h3>
+										<p style="color: darkgray;">Login using an existing account<br />
+										<form name="contactForm" id='form-border' class="form-border" action="/verify_login" method="POST" autocomplete="on">
+											<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                                            <div class="field-set">
+												<label for="username">Username or Email:</label><br/>
+                                                <input type='text' name='username' id='username' class="form-control" {% if username %}value="{{session['username']}}"{% endif %} autofocus required/>
+                                            </div>
+											
+											 <div class="field-set">
+												<label for="password">Password:</label>
+                                                <input type='password' name='password' id='password' class="form-control" {% if username %}value="{{session['password']}}"{% endif %} required/>
+                                            </div>
+											
+											<div class="field-set">
+												<input type='submit' id='send_message' value='Submit' class="btn btn-main btn-fullwidth color-2">
+											</div>
+											
+											<div class="clearfix"></div>
+											
+											<div class="spacer-single"></div>
+
+											<h3 class="mb10" style="color: black;">Register</h3>
+											<p style="color: darkgray;">Create a new account<br />
+											<a class="btn btn-main btn-fullwidth color-2" href="/register">Register new account</a>
+
+											<div class="clearfix"></div>
+											
+											<div class="spacer-single"></div>
+											<h3 class="mb1" style="color: black;">Recover account</h3>
+											<p style="color: darkgray;">Cannot remember the password?<br />
+											<a class="btn btn-main btn-fullwidth color-2" href="/forgot_password">Recover your account</a>
+
+
+                                </form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>		
+            
+            </div>
+            <!-- content close -->
+
+            <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

@@ -1,0 +1,133 @@
+{% include '/includes/giga_head.html' %}
+
+    <div id="wrapper">
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <!-- section begin -->
+            <section class="text-light" data-bgimage="url(images/background/subheader.jpg)" data-stellar-background-ratio=".2">
+
+                <div class="center-y relative text-center" data-scroll-speed="4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                            <div class="col text-center">
+                                <div class="spacer-single"></div>
+                                <h1>About us</h1>
+
+                                
+                                <div class="spacer-20"></div>
+                                <p class="lead">
+                                    We bring closer this new technology which is called Blockchain to artists and creators.
+                                    We want you to be able to mint, buy, sell and to auction your artwork with low fees and royalties.
+                                    We work hard to provide a good service, an easy to use platform with nice aesthetics and able to share your artwork and projects.
+                                    </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- section close -->
+
+            <!-- section begin -->
+            <section id="section-nfts">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h2>The Team</h2>
+                                <div class="small-border bg-color-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row wow fadeIn">
+                        {% for member in team.items() %}
+
+
+
+
+<div class="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <a href='#'>{{ team[member[0]]["name"] }}</a>
+    <div class="nft__item">
+        <div class="author_list_pp">
+            <a href='#' data-bs-toggle="tooltip" data-bs-placement="top" title='{{ team[member[0]]["title"] }}'>                                    
+                <img class="lazy" src='data:image/png;base64, team[member[0]]["image"]' alt="">
+            </a>
+        </div>
+        <div class="nft__item_wrap">
+            <div class="nft__item_extra">
+                <div class="nft__item_buttons">
+                    <div class="nft__item_share">
+                        <h4>Links</h4>
+                        {% for link in team[member[0]]["links"] %}
+                            {% if 'linkedin' in link %}
+                                <a href='{{ team[member[0]]["links"]["linkedin"] }}' ><i class="fa-brands fa-linkedin"></i></a>
+                            {% endif %}
+                            {% if 'twitter' in link %}
+                                <a href='{{ team[member[0]]["links"]["twitter"] }}' ><i class="fa-brands fa-twitter-square"></i></a>
+                            {% endif %}
+                            {% if 'website' in link %}
+                                <a href='{{ team[member[0]]["links"]["website"] }}' ><i class="fa-brands fa-firefox"></i></a>
+                            {% endif %}
+                            {% if 'discord' in link %}
+                                <a href='{{ team[member[0]]["links"]["discord"] }}' ><i class="fa-brands fa-discord"></i></a>
+                            {% endif %}
+                            {% if 'github' in link %}
+                                <a href='{{ team[member[0]]["links"]["github"] }}' ><i class="fa-brands fa-github-square"></i></a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <a href='#'>
+                <div class="d-placeholder"></div>
+                <img src='data:image/png;base64,{{ team[member[0]]["image"] }}' class="lazy nft__item_preview" alt="">
+            </a>
+        </div>
+        <div class="nft__item_info">
+            <a href='#'>
+                <h4>{{ team[member[0]]["title"] }}</h4>
+            </a>
+            <div class="nft__item_click">
+                <span></span>
+            </div>
+            <div class="nft__item_price">
+                    {{ team[member[0]]["subtitle"] }}
+            </div>
+            <div class="nft__item_like">
+                <i class="fa fa-heart active"></i><span>100</span>
+            </div>
+        </div> 
+    </div>
+</div>
+                        <!-- nft item begin -->
+                        
+                        {% endfor %}
+                                             
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- content close -->
+
+        <a href="#" id="back-to-top"></a>
+
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

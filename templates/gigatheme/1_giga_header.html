@@ -1,0 +1,102 @@
+<header class="transparent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="de-flex sm-pt10">
+                    <div class="de-flex-col">
+                        <div class="de-flex-col">
+                            <!-- logo begin -->
+                            <div id="logo">
+                                <a href="/">
+                                    <img alt="" class="logo" src="/templates/gigatheme/images/adamagic_logo.png" />
+                                    <img alt="" class="logo-2" src="/templates/gigatheme/images/adamagic_logo_revert.png" />
+                                </a>
+                            </div>
+                            <!-- logo close -->
+                        </div>
+
+                    </div>
+                    <div class="de-flex-col header-col-mid">
+                        <!-- mainmenu begin -->
+                        <ul id="mainmenu">
+                                {% if username %}
+                                <a>{{ username }}<span></span></a>
+                                {% endif %}
+                                <li>
+                                    <a href="/">Home<span></span></a>
+                                    
+                                </li>
+                                <li>
+                                    <a href="/explore">Explore<span></span></a>
+                                    
+                                </li>
+                                <li>
+                                    <a href="#">Pages<span></span></a>
+                                    <ul>
+                                        {% if not username %}
+                                        <li><a href="/login">Login</a></li>
+                                        {% endif %}
+                                        <li><a href="/mint_giga">Mint</a></li>
+                                        <li><a href="/vending_machine">Vending Machine</a></li>
+                                        <li><a href="/about">About us</a></li>
+                                        <li><a href="/contact_us">Contact us</a></li>
+                                        <li><a href="/faq">FAQ</a></li>
+                                        {% if username %}
+                                        <li><a href="/profile/{{ username }}">Profile</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </li>                                    
+                                <li>
+                                    <a href="/about_us">About us<span></span></a>
+                                </li>
+                                <li>
+                                    <a href="/faq">FAQ<span></span></a>
+                                </li>
+                                {% if username %}
+                                <li>
+                                   <a href="/profile/{{ username }}">Profile</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        {% if user_profile %}
+                        <div class="menu_side_area" style="background-size: cover;">
+                            <div class="de-login-menu" style="background-size: cover;">
+                                <a href="/mint" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Create</span></a>
+
+
+                                <span id="de-click-menu-profile" class="de-menu-profile">                           
+                                    <img src="data:image/png;base64,{{ user_profile['profile_pic'] }}" class="img-fluid" alt="">
+                                </span>
+
+                                <div id="de-submenu-profile" class="de-submenu" style="display: none; background-size: cover;">
+                                    <div class="d-name" style="background-size: cover;">
+                                        <h4>{{ user_profile["alias"] }}</h4>
+                                        <a href="02_dark-profile.html">Set display name</a>
+                                    </div>
+                                    <div class="spacer-10" style="background-size: cover;"></div>
+
+                                    <div class="d-line" style="background-size: cover;"></div>
+
+                                    <ul class="de-submenu-profile">
+                                        <li><a href="/profile/{{ user_profile['username'] }}"><i class="fa fa-user"></i> My profile</a>
+                                        </li><li><a href="/edit_profile/{{ user_profile['username'] }}"><i class="fa fa-pencil"></i> Edit profile</a>
+                                        </li><li><a href="/logout"><i class="fa fa-sign-out"></i> Sign out</a>
+                                    </li></ul>
+                                </div>
+                                <span id="menu-btn"></span>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="menu_side_area" style="background-size: cover;">
+                            <div class="de-login-menu" style="background-size: cover;">
+                                <a href="https://adamagic.io/login" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Login</span></a>
+                                <span id="menu-btn"></span>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

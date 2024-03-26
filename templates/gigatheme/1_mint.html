@@ -1,0 +1,613 @@
+{% include '/includes/giga_head.html' %}
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+            <!-- section begin -->
+            <section id="subheader" class="text-light" data-bgimage="url(images/background/subheader.jpg) top">
+                <h1>{% if error %}{{ error }}{% endif %}</h1>
+                    <div class="center-y relative text-center">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="col-md-12 text-center">
+                                    {% if user_profile['msg'] %} <h3>{{ user_profile['msg' ] }}<h3></h3> {% endif %}
+                                    {% if msg %}
+                                    <h2>{{ msg }} {% if link %}<a href="{{ link }}">edit your NFT</a>{% endif %}</h2>
+                                    {% else %}
+									<h1>Mint and sell your NFTs with no upfront fees</h1>
+                                    {% endif %}
+                                    {% if not username %}<h3>You need to be logged in before minting</h3>{% endif %}
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row wow fadeIn">
+                        <div class="col-lg-7 offset-lg-1">
+                            <form id="form-create-it" class="form-border" method="post" action="/create_item" enctype="multipart/form-data" onsubmit="return validate()">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+                                <div class="field-set">
+
+
+                                    <h5>Upload file</h5>
+                                    <div class="d-create-file">
+                                        <p id="file_name">PNG, JPG. Max 50mb.</p>
+                                        <input type="button" id="get_file" class="btn-main" value="Browse">
+                                        <input accept="image/*" type="file" name="file" id="upload_file">
+                                    </div>
+                                    <div class="spacer-40"></div>
+
+                                    <h5>Select method</h5>
+                                    <div class="de_tab tab_methods">
+                                        <ul class="de_nav" id="selling_type">
+                                            <li class="active" ><span><i class="fa fa-tag"></i>Fixed price</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="spacer-20"></div>
+
+
+                                    <h5>Price</h5>
+                                    <input type="text" name="price" id="item_price" class="form-control" placeholder="Enter the price for this artwork. Minimum 3 ADA" required pattern="[0-9]{1,100}" title="Please,/>
+                                    <div class="spacer-20"></div>
+
+
+                                    <h5>Title</h5>
+                                    <input type="text" name="name" id="item_title" class="form-control" placeholder="e.g. 'Crypto Funk" required pattern="[a-zA-Z0-9 ]{3,32}" title="Please, enter a title with only letters from a-Z, numbers from 0-9, spaces and maximum 32 characters in length" />
+                                    <div class="spacer-20"></div>
+
+
+                                    <h5>Artist</h5>
+                                    <input type="text" name="artist" id="item_artist" class="form-control" placeholder="e.g. 'Monet" required pattern="[a-zA-Z0-9 ]{3,50}" title="Please, enter an artist name with only letters from a-Z, numbers from 0-9, spaces and maximum 50 characters in length"/>
+                                    <div class="spacer-20"></div>
+
+
+                                    <h5>Description</h5>
+                                    <textarea data-autoresize name="description" id="item_desc" class="form-control" placeholder="e.g. 'A very special item'" pattern="[a-zA-Z0-9'(),.!?]" title="Only characters from A-Z, numbers from 0-9 and puntuations like: ,.()-_!? "></textarea>
+                                    <div class="spacer-20"></div>
+
+
+                                    <h5>Category</h5>
+                                    <div class="dropdown fullwidth mb20">
+                                        <select name="category" id="item_category">
+                                            <option selected value=""></option>
+                                            <ul>
+                                                <li><option value="3D Art"><span>3D Art</span></option></li>
+                                                <li><option value="Abstract"><span>Abstract</span></option></li>
+                                                <li><option value="Digital Art"><span>Digital Art</span></option></li>
+                                                <li><option value="Drawings"><span>Drawings</span></option></li>
+                                                <li><option value="Graphic"><span>Graphic</span></option></li>
+                                                <li><option value="Paintings"><span>Paintings</span></option></li>
+                                                <li><option value="Photography"><span>Photography</span></option></li>
+                                            </ul>
+                                        </select>
+                                    </div>
+                                    <div class="spacer-20"></div>
+
+
+                                    <h5>Hashtags</h5>
+                                    <p>Press spacebar (space) after each tag</p>
+                                    <input id="input_tags" name="seed" type="text" spellcheck="false"> <div style="display:inline;" id="remove_tags" class="btn-main">Remove All</div>
+                                    <ul id='tags' name="seed_tags" ></ul>
+                                    <input autocomplete="false" name="hashtags" type="text" style="display:none;" id='hidden_input'>
+                                    <div class="details">
+                                        <p><span>5</span> tags are remaining</p>
+                                    </div>
+                                    <div class="spacer-40"></div>
+
+
+
+                                    <h5>Advance setup, you may skip this if you wish</h5>
+                                    <div class="nft__item" style="background-size: cover;">
+
+                                        <h5>Beneficiary address</h5>
+                                        <input type="text" name="beneficiary_address" id="beneficiary_address" class="form-control" placeholder="Wallet address to transfer earnings" pattern="[a-zA-Z0-9]{50,126}"/>
+                                        <div class="spacer-20"></div>
+
+
+                                        <h5>Metadata fields</h5>
+                                        <span>Color: Red</span>
+                                        <a href="javascript:void(0)" class="btn-main" id="addMore2" title="Add another field" onclick="add_field()">Add one more field</a>
+                                        <div class="spacer-10"></div>
+                                        <div id="metadata">
+                                            <div style="display: inline-flex;">
+                                                <input type="text" name="metadata" id="metadata_0_0" class="form-control" placeholder="Attribute"/><input type="text" name="metadata" id="metadata_0_1" class="form-control" placeholder="Value"/>
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                        </div>
+                                        <div class="spacer-20"></div>
+
+
+                                        <h5>Is it a single NFT or a Collection?</h5>
+                                        <div class="de_tab tab_methods">
+                                            <ul class="de_nav" id="ul_id">
+                                                <li class="active" onclick="
+                                                    document.getElementById('collection_hidden').style.display='none';
+                                                    document.getElementById('collection__dropdown_hidden').style.display='none';
+                                                    document.getElementById('royalties_id').style.display='block';
+                                                    document.getElementById('policy_name').disabled= false;
+                                                    document.getElementById('upload_collection').style.display='none';
+                                                    document.getElementById('image_preview_collection').style.display='none';
+                                                    " id="li_single"><span><i class="fa fa-tag"></i>Single NFT</span></li>
+                                                
+                                                <li onclick="
+                                                    document.getElementById('collection_hidden').style.display='block';
+                                                    document.getElementById('collection__dropdown_hidden').style.display='block';
+                                                    document.getElementById('policy_name').disabled = true;
+                                                    document.getElementById('policy_name').placeholder = 'Collection name will be used instead';
+                                                    document.getElementById('upload_collection').style.display='block';
+                                                    document.getElementById('image_preview_collection').style.display='block';
+                                                    
+
+                                                    " id="li_new_collection"><span><i class="fa fa-tag"></i>Collection</span></li>
+                                            </ul>
+                                            <input style="display: none;" name="nft_type" type="text" id="nft_type" value="Single NFT" />
+                                        </div>
+                                        <div class="spacer-20"></div>
+
+                                        <div id="upload_collection" style="display: none;">
+                                            <h5>Upload collection file</h5>
+                                            <div class="d-create-file">
+                                                <p id="file_name_collection">PNG, JPG. Max 50mb.</p>
+                                                <input type="button" id="get_file_collection" class="btn-main" value="Browse">
+                                                <input accept="image/*" type="file" name="file_collection" id="upload_file_collection" hidden>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="collection__dropdown_hidden" style="display: none;">
+                                            <h5>Select a collection</h5>
+                                            <div id="item_collection" class="dropdown fullwidth mb20">
+                                                <select name="collection_id">
+                                                    <option selected value="" onclick="
+                                                        document.getElementById('royalties_id').style.display='block';
+                                                        document.getElementById('royalties_id_display').style.display='none';
+                                                        document.getElementById('collection_hidden').style.display='block'
+                                                        "></option>
+                                                    <ul>
+                                                        {% for collection in collections %}
+                                                            <li><option value="{{ collection }}" onclick="
+                                                            document.getElementById('royalties_id').style.display='none';
+                                                            document.getElementById('royalties_id_display').style.display='block';
+                                                            document.getElementById('collection_hidden').style.display='none'
+                                                            "><span>{{ collection[1] }}</span></option></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="collection_hidden" style="display: none;">
+                                            <h5>Collection name</h5>
+                                            <input name="collection_name" type="text" id="collection_name_id" placeholder="Collection name"/>
+                                            <div class="spacer-20"></div>
+                                        </div>
+
+                                        <div id="royalties_id">
+                                            <h5>Royalties</h5>
+                                            <input type="text" name="royalties" id="item_royalties" class="form-control" placeholder="Royalties after resell. Suggested: 5 (5%)" pattern="[0-9]{0,2}"/>
+                                            <div class="spacer-20"></div>
+                                        
+
+
+                                            <h5>In case you don't know about policies, leave this to us and continue</h5>
+                                            <div class="spacer-single"></div>
+
+                                            <h5>Select a policy ID</h5>
+                                            <div id="item_policy_id" class="dropdown fullwidth mb20">
+                                                <select name="oldPolicy">
+                                                    <option selected value=""></option>
+                                                    <ul>
+                                                        {% for policy in policies %}
+                                                            <li><option value="{{ policy[0] }}"><span>{{ policy[0] }}</span></option></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </select>
+                                            </div>
+                                            <div class="spacer-20"></div>
+
+                                            <div id="policy_name_id">
+                                                <h5>Policy name</h5>
+                                                <input type="text" name="policyName" id="policy_name" class="form-control" placeholder="A meaningful name to you" pattern="[a-zA-Z0-9 ]{3,64}"/>
+                                                <div class="spacer-20"></div>
+                                            </div>
+
+
+                                            <h5>Policy expiration (in days)</h5>
+                                            <input type="text" name="policyExpirationDate" id="item_expiration_date" class="form-control" placeholder="How long will this policy remain open?" pattern="[0-9]{1,50}"/>
+                                            <div class="spacer-20"></div>
+                                        </div>
+                                        <div id="royalties_id_display">
+                                            <h5>Royalties and policies are the same for the entire collection</h5>
+                                            <div class="spacer-20"></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="spacer-20"></div>
+                                    
+                                    
+                                    <input type="submit" id="submit" class="btn-main" value="Create" >
+                                    <div class="spacer-single"></div>
+                                    <p>By clicking "Create", I confirm that I am uploading my own work or that I have the right to sell this work and I agree with the <a href="/terms_and_conditions">Terms and conditions</a></p>
+                                    <div class="spacer-single"></div>
+                                </form>
+                            </div>
+                            
+                        
+
+
+
+
+
+
+
+                        <div class="col-lg-3 col-sm-6 col-xs-12" style="background-size: cover;">
+                            <h5>Preview item</h5>
+                            <a href="#" id="artist_prev"></a>
+                            <div class="nft__item" style="background-size: cover;">
+                                <div class="author_list_pp" style="background-size: cover;">
+                                    <a href="#">                                    
+                                        <img src="/users/{{ user_profile['username'] }}/profile_picture.png" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="nft__item_wrap" style="background-size: cover; height: 264.4px;">
+                                    <a href="#">
+                                        <img id="image_prev" height="200" class="lazy nft__item_preview" alt="" style="display: inline;">
+                                    </a>
+                                </div>
+                                <div class="nft__item_info" style="background-size: cover;">
+                                    <a href="#">
+                                        <h4 id="title_prev"></h4>
+                                    </a>
+                                    <div class="nft__item_click" style="background-size: cover;">
+                                        <span></span>
+                                    </div>
+                                    <div class="nft__item_price" id="price_prev" style="background-size: cover;">
+                                        <span></span>
+                                    </div>
+                                    <div class="nft__item_like active" style="background-size: cover;">
+                                        <i class="fa fa-heart active"></i><span>100</span>
+                                    </div>                            
+                                </div>
+                                <div>
+                                    <h6>Description:</h6>
+                                    <p id="description_prev"></p>
+                                </div>
+                                <div style="display:inline;">
+                                    <h6>Category:</h6><div id="category_prev"></div>
+                                </div>
+                            </div>
+                            <h6>Metadata:</h6>
+                                <div style="display:inline-flex;">
+                                    <div id="metadata_prev0"></div>:<div id="metadata_prev1"></div>
+                                </div>
+                            
+
+
+
+
+
+
+                                
+                            <div id="image_preview_collection"  style="display: none;">
+                                <h5>Preview image collection</h5>
+                                <div class="nft__item" style="background-size: cover;">
+                                    <div class="nft__item_wrap" style="background-size: cover; height: 264.4px;">
+                                        <a href="#">
+                                            <img id="image_prev_collection" height="200" class="lazy nft__item_preview" alt="" style="display: inline;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- content close -->
+
+        <a href="#" id="back-to-top"></a>
+
+<div class="modal fade" id="wait" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered de-modal">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <div class="p-3 form-border">
+                    <h3>Processing your artwork</h3>
+                    <b>Please, note that it may take several minutes to process your artwork.</b> 
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div><b>The amount of time it may take depends on your internet conection and server usage</b></div>
+                    </div>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div><b>Do no close this window. The website will automatically redirect you to the verification window as soon as the internal tasks are done.</b></div>
+                    </div>
+                    <div class="spacer-single"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function order(){
+        const ttt = document.getElementById("tags").children;
+        let text = "";
+        for (let i = 0; i < ttt.length; i++) {
+        text += ttt[i].innerText + ' ';
+        }
+
+        var msgElement = document.getElementById("hidden_input");
+        msgElement.value = text;
+
+        let lis = document.getElementById('ul_id').getElementsByClassName('active');
+        lis = lis[0]["children"][0]["children"][0]["nextSibling"]["data"];
+        var nft_type_hidden = document.getElementById('nft_type');
+        nft_type_hidden.value = lis;
+
+        }
+
+function validate(){
+    var description = document.getElementById('item_desc').value;
+    var artist = document.getElementById('item_artist').value;
+    var nft_name = document.getElementById('item_title').value;
+    var price = document.getElementById('item_price').value;
+    var perc = document.getElementById('item_royalties').value;
+    var met0 = document.getElementById('metadata_0_0').value;
+    var met1 = document.getElementById('metadata_0_1').value;
+    
+    if (artist == null || artist == "") {
+      document.getElementsByName('artist')[0].placeholder='Artist Name';
+      alert("Please, name the artist of your artwork. Who is the artist?");
+      return false;
+    }
+    
+    if (nft_name == null || nft_name == "") {
+      document.getElementsByName('collection_name')[0].placeholder='Collection Name';
+      alert("Please, name your artwork. How is your NFT named?");
+      return false;
+    }
+    
+    if (price < 3) {
+        alert("Please, the minimum price is 3 ADA per artwork.");
+        return false
+    }
+    if (price == null || price == "") {
+      document.getElementsByName('price')[0].placeholder='Price of each NFT';
+      alert("Please, price your artwork.");
+      return false;
+    }
+
+    if (description != ''){
+        if (!description.match(/[a-z0-9\n!-+=.,;:?\n]/i)) {
+            alert('Please, include in the Description field only characters from a-z, digits from 0-9 and punctuation marks such as: ,.?!()-+= ');
+            return false;
+            }
+    }
+
+    if ((met0 != '') && (met1 == '')){
+        alert('Please, both fields on the metadata must be filled, for example: "Color":"Red" ')
+        return false
+    }
+    if ((met0 == '') && (met1 != '')){
+        alert('Please, both fields on the metadata must be filled, for example: "Height":"180cm" ')
+        return false
+    }
+
+    if (description != ''){
+        if (!description.match(/[a-z0-9\n!-+=.,;:?\n]/i)) {
+            alert('Please, include in the Description field only characters from a-z, digits from 0-9 and punctuation marks such as: ,.?!()-+= ');
+            return false;
+            }
+    }
+
+    if (perc.match(/[%/@#;*=+"(),.]/i)) {
+      document.getElementById('item_royalties')[0].placeholder='No punctuations and only round numbers, please';
+      alert("Please, no punctuation marks and only round numbers in the royalty percentage field");
+      return false;
+    }
+
+    order();
+
+    return true;
+};
+</script>
+
+
+
+<script type="text/javascript">
+  document.getElementById('upload_file').onchange = function () {
+  var src = URL.createObjectURL(this.files[0]);
+  document.getElementById('image_prev').src = src;
+}
+
+document.getElementById('upload_file_collection').onchange = function () {
+  var src = URL.createObjectURL(this.files[0]);
+  document.getElementById('image_prev_collection').src = src;
+}
+
+document.getElementById('item_title').onchange = function () {
+    var src = document.getElementById('item_title').value;
+    document.getElementById('title_prev').innerHTML = src;
+}
+
+document.getElementById('item_price').onchange = function () {
+    var src = document.getElementById('item_price').value;
+    document.getElementById('price_prev').innerHTML = src;
+}
+
+document.getElementById('item_artist').onchange = function () {
+    var src = document.getElementById('item_artist').value;
+    document.getElementById('artist_prev').innerHTML = src;
+}
+
+document.getElementById('item_desc').onchange = function () {
+    var src = document.getElementById('item_desc').value;
+    document.getElementById('description_prev').innerHTML = src;
+}
+
+document.getElementById('item_category').onchange = function () {
+    var src = document.getElementById('item_category').value;
+    document.getElementById('category_prev').innerHTML = src;
+}
+
+document.getElementById('metadata_0_0').onchange = function () {
+    var src = document.getElementById('metadata_0_0').value;
+    document.getElementById('metadata_prev0').innerHTML = src;
+}
+
+document.getElementById('metadata_0_1').onchange = function () {
+    var src = document.getElementById('metadata_0_1').value;
+    document.getElementById('metadata_prev1').innerHTML = src;
+}
+
+document.getElementById('collection_name_id').onchange = function () {
+    var src = document.getElementById('collection_name_id').value;
+    document.getElementById('policy_name').value = src;
+}
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    const ul = document.querySelector("#tags"),
+    input = document.querySelector("#input_tags"),
+    tagNumb = document.querySelector(".details span");
+let maxTags = 5,
+tags = [];
+countTags();
+createTag();
+function countTags(){
+    input.focus();
+    tagNumb.innerText = maxTags - tags.length;
+}
+function createTag(){
+    ul.querySelectorAll("li").forEach(li => li.remove());
+    tags.slice().reverse().forEach(tag =>{
+        let liTag = `<li>${tag} <i class="uit uit-multiply" onclick="remove(this, '${tag}')"></i></li>`;
+        ul.insertAdjacentHTML("afterbegin", liTag);
+    });
+    countTags();
+}
+function remove(element, tag){
+    let index  = tags.indexOf(tag);
+    tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+    element.parentElement.remove();
+    countTags();
+}
+function addTag(e){
+    if(e.keyCode == 32){
+        let tag = e.target.value.replace(/\s+/g, ' ');
+        if(tag.length > 1 && !tags.includes(tag)){
+            if(tags.length < 5){
+                tag.split(',').forEach(tag => {
+                    tags.push(tag);
+                    createTag();
+                });
+            }
+        }
+        e.target.value = "";
+    }
+}
+input.addEventListener("keyup", addTag);
+const removeBtn = document.querySelector("#remove_tags");
+removeBtn.addEventListener("click", () =>{
+    tags.length = 0;
+    ul.querySelectorAll("li").forEach(li => li.remove());
+    countTags();
+});
+
+
+</script>
+<script>
+
+var i = 0;
+function increment(){
+i += 1;
+}
+/*
+---------------------------------------------
+Function to Remove Form Elements Dynamically
+---------------------------------------------
+*/
+function removeElement(parentDiv, childDiv){
+if (childDiv == parentDiv){
+alert("The parent div cannot be removed.");
+}
+else if (document.getElementById(childDiv)){
+var child = document.getElementById(childDiv);
+var parent = document.getElementById(parentDiv);
+parent.removeChild(child);
+}
+else{
+alert("Child div has already been removed or does not exist.");
+return false;
+}
+}
+/*
+----------------------------------------------------------------------------
+div style="display: inline-flex;"
+Functions that will be called upon, when user click on the Name text field.
+----------------------------------------------------------------------------
+*/
+function add_field(){
+var r = document.createElement('div');
+var y = document.createElement("input");
+var z = document.createElement("input");
+var g = document.createElement("div");
+
+y.setAttribute("type", "text");
+y.setAttribute("placeholder", "Color");
+y.setAttribute("Name", "metadata");
+
+z.setAttribute("type", "text");
+z.setAttribute("placeholder", "Blue");
+z.setAttribute("Name", "metadata");
+
+r.setAttribute("style", "display: inline-flex")
+
+g.setAttribute("placeholder", "delete");
+g.setAttribute("class", "btn-main");
+g.setAttribute("style", "height:80%;width:80%");
+g.innerHTML = 'Remove';
+
+increment();
+
+r.appendChild(y);
+r.appendChild(z);
+g.setAttribute("onclick", "removeElement('metadata','id_" + i + "')");
+r.appendChild(g);
+r.setAttribute("id", "id_" + i);
+document.getElementById("metadata").appendChild(r);
+
+var s = document.createElement('div');
+s.setAttribute("class", "spacer-10")
+document.getElementById("metadata").appendChild(s);
+
+}
+</script>
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

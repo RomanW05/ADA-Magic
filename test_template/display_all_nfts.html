@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+	<div style="justify-content: center;">
+<button  class="button button1" onclick="window.location.href='/display_all_nfts/0';">Show all NFTs</button></div>
+Display
+
+{% if error %}
+{{ error }}
+{% endif %}
+
+{% if total_pages %}
+Total pages: {{ total_pages }}
+{% endif %}
+
+{% if current_page %}
+current_page: {{ current_page }}
+{% endif %}
+
+{% if items %}
+{% for elem in items %}
+elem: {{ elem }}<br />
+{% endfor %}
+{% endif %}
+
+
+<div class="pagination">
+<a href="/display_all_nfts/0">&laquo;</a>
+
+{% for page in range(pagination_start, pagination_end + 1) %}
+	
+	{% if page==current_page%}
+		<a class="active" href="#">{{ page }}</a>
+	{% else %}
+		<a href="/display_all_nfts/{{page}}">{{ page }}</a>
+	{% endif %}
+{% endfor %}
+
+<a href="/display_all_nfts/{{total_pages}}">&raquo;</a>
+</div>
+<!-- <div class="pagination"> -->
+  <!-- <a href="#">&laquo;</a> -->
+  <!-- <a href="#">1</a> -->
+  <!-- <a class="active" href="#">2</a> -->
+  <!-- <a href="#">3</a> -->
+  <!-- <a href="#">4</a> -->
+  <!-- <a href="#">5</a> -->
+  <!-- <a href="#">6</a> -->
+  <!-- <a href="#">&raquo;</a> -->
+
+
+</body>
+</html>

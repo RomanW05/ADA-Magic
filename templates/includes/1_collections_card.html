@@ -1,0 +1,41 @@
+<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <a href='/profile/{{ nft["username"] }}'>{{ nft["artist"] }}</a>
+    <div class="nft__item">
+        <div class="author_list_pp">
+            <a href='/profile/{{ nft["username"] }}' data-bs-toggle="tooltip" data-bs-placement="top" title='{{ nft["username"] }}'>
+                <img class="lazy" title='{{ nft["collection_name"] }}' src='/users/{{ nft["username"] }}/profile_picture_thumb.png' onerror="$(this).hide();" alt="Profile image of the artist {{ nft['artist'] }}">                
+            </a>
+        </div>
+        <div class="nft__item_wrap">
+            <div class="nft__item_extra">
+                <div class="nft__item_buttons">
+                    <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href='https://www.facebook.com/sharer/sharer.php?u=https://adamagic.io/collections/{{ nft["collection_name"]|replace(" ", "_") }}/{{ nft["username"] }}' target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                        <a href='https://twitter.com/intent/tweet?url=https://adamagic.io/collections/{{ nft["collection_name"]|replace(" ", "_") }}/{{ nft["username"] }}' target="_blank"><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href='mailto:?subject=I wanted you to see this site&amp;body=Check out this NFT https://adamagic.io/collections/{{ nft["collection_name"]|replace(" ", "_") }}/{{ nft["username"] }}'><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href='/collections/{{ nft["collection_name"]|replace(" ", "_") }}/{{ nft["username"] }}'>
+                <div class="d-placeholder"></div>
+                <img src='/collections/{{ nft["username"] }}/{{ nft["collection_name"]|replace(" ", "_") }}/single_nft.png' class="lazy nft__item_preview" alt="{% if nft['description'] == '' or nft['description'] == 'No description' %}Non Fungible Token still not minted. The artist is {{ nft['artist'] }} and the name of the artwork is called {{ nft['collection_name'] }}{% else %}{{ nft['description'] }}{% endif %}">
+            </a>
+        </div>
+        <div class="nft__item_info">
+            <a href='/collections/{{ nft["collection_name"]|replace(" ", "_") }}/{{ nft["username"] }}'>
+                <h4>{{ nft["collection_name"] }}</h4>
+            </a>
+            <div class="nft__item_click">
+                <span></span>
+            </div>
+            <div class="nft__item_price">
+                {% if nft["collection_sold"] == nft['collection_total'] %}
+                <div style="color: red;">SOLD</div>
+                {% else %}
+                    {{ nft["collection_sold"] }}/{{ nft['collection_total'] }} Available
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

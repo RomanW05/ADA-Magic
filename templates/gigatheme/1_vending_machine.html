@@ -1,0 +1,233 @@
+{% include '/includes/giga_head.html' %}
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+            
+            <!-- section begin -->
+            <section id="section-hero" aria-label="section" class="text-light overflow-hidden" data-bgimage="url({{ url_for('static', filename='image/2.jpg') }}) top">
+                {% if msg %}<br /><br /><br /><br /><h1>{{ msg }}</h1>{% endif %}
+                    <div class="center-y relative text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+									<h1>Create Multiple Collectible</h1>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row wow fadeIn">
+                        <div class="col-lg-7 offset-lg-1">
+                            <form id="form-create-item" class="form-border" method="post" action="/vending_machine_load" enctype="multipart/form-data" onsubmit="return validate()">
+                                
+                                <div class="field-set">
+
+                                    <div class="d-create-file">
+                                        <p id="file_name_thumb">Thumbnail, jpg or png. Max 10mb.</p>
+                                        <input type="button" class="btn-main" id="thumbnail_a" value="Browse">
+                                        <input type="file" id="thumbnail_b" class="btn-main" name="thumbnail" placeholder="Thumbnail" value="Browse" style="display: none;"/>
+                                    </div>
+
+                                    <div class="spacer-40"></div>
+
+                                    {% for x in range(10) %}
+                                    <h5>Upload layer {{ x+1 }}</h5>
+
+                                    <div class="d-create-file">
+                                        <p id="file_name_layer{{x}}">PNG. Max 10mb.</p>
+                                        <input type="button" id="get_file_a{{x}}" class="btn-main" value="Browse">
+                                        <input type="file" id="get_file_b{{x}}" name="obj{{x}}" multiple style="display: none;"/>
+                                    </div>
+
+                                    <div class="spacer-40"></div>
+
+                                    {% endfor %}
+
+                                    <h5>Select method</h5>
+                                    <div class="de_tab tab_methods">
+                                        <ul class="de_nav">
+                                            <li class="active"><span><i class="fa fa-tag"></i>Fixed price</span>
+                                            </li>
+                                        </ul>
+
+                                        <div class="de_tab_content">
+
+                                            <div id="tab_opt_1">
+                                                <h5>Price</h5>
+                                                <input type="text" name="price" id="item_price" class="form-control" placeholder="enter price for one item (ADA)" required pattern="[0-9]{1,6}" />
+                                            </div>
+
+                                            <div id="tab_opt_2">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Title</h5>
+                                    <input type="text" name="collection_name" id="item_title" class="form-control" placeholder="e.g. 'Crypto Funk" required pattern="[a-zA-Z0-9 ]{3,50}" />
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Artist</h5>
+                                    <input type="text" name="artist" id="item_artist" class="form-control" placeholder="e.g. 'Monet" required pattern="[a-zA-Z0-9 ]{3,50}"/>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Description</h5>
+                                    <textarea data-autoresize name="description" id="item_desc" class="form-control" placeholder="e.g. 'This is very limited item'" pattern="[a-zA-Z0-9'(),. ]"></textarea>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Royalties</h5>
+                                    <input type="text" name="royalties" id="item_royalties" class="form-control" placeholder="suggested: 5%" pattern="[0-99]{0,2}"/>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Number of NFTs</h5>
+                                    <input type="text" name="collection_total" id="collection_total" class="form-control" placeholder="10000, 5000, 1000,... NFTs" required pattern="[0-9]{1,6}"/>
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Website</h5>
+                                    <input type="text" name="website" id="item_website" class="form-control" placeholder="e.g. https://adamagic.io" />
+
+                                    <div class="spacer-20"></div>
+
+                                    <h5>Minting date</h5>
+                                    <input type="datetime-local" name="date2" class="datepicker" id='date_to_change' />
+                                    <input type="hidden" name="date1" id='date1' required />
+
+                                    <div class="spacer-single"></div>
+
+                                    <input type="submit" id="submit" class="btn-main" value="Submit" data-bs-toggle="modal" data-bs-target="#wait">
+                                    <div class="spacer-single"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- content close -->
+
+        <a href="#" id="back-to-top"></a>
+<script type="text/javascript">
+function validate(){
+    var local_date = new Date();
+    var local_time_string=local_date.toTimeString();
+    var gmt = local_time_string.split(" ")[1];
+  
+    if (gmt.search(/[+]/) > -1) {  // string_text.search(/[another string]/) returns -1 if "another string" not in string_text
+        gmt = gmt.split("+")[1];
+        var gmt_h = gmt.slice(0, 2);  // GMT hour
+        var gmt_m = gmt.slice(2, 4);  // GMT minute
+        gmt_h = parseInt(gmt_h) * 60 * 60;  // Hours in seconds
+        gmt_m = parseInt(gmt_m) * 60;  // Minutes to add in seconds
+        var time_to_add = -(gmt_h + gmt_m);  // You have to subtract since you are in UTC+1 local time 
+  }
+  
+    if (gmt.search(/[-]/) > -1){  // string_text.search(/[another string]/) returns -1 if "another string" not in string_text
+        gmt = gmt.split("-")[1];
+        var gmt_h = gmt.slice(0, 2);  // GMT hour
+        var gmt_m = gmt.slice(2, 4);  // GMT minute
+        gmt_h = parseInt(gmt_h) * 60 * 60;  // Hours in seconds
+        gmt_m = parseInt(gmt_m) * 60;  // Minutes to add in seconds
+        var time_to_add = gmt_h + gmt_m;  // You have to add since you are in UTC-1 local time 
+  }
+var a = document.getElementById('date_to_change').value;
+a = Date.parse(a);
+a = a / 1000;
+a = a + time_to_add;  // Time difference added
+var b = document.getElementById('date1');
+b.value = a;
+
+
+    var artist = document.forms["Form"]["artist"].value;
+    var collection_name = document.forms["Form"]["collection_name"].value;
+    var collection_total = document.forms["Form"]["collection_total"].value;
+    var price = document.forms["Form"]["price"].value;
+    var date2 = document.forms["Form"]["date2"].value;
+
+
+    
+    if (artist == null || artist == "") {
+      document.getElementsByName('artist')[0].placeholder='Artist Name';
+      alert("Please fill 'Artist Name'");
+      return false;
+    }
+    
+    if (collection_name == null || collection_name == "") {
+      document.getElementsByName('collection_name')[0].placeholder='Collection Name';
+      alert("Please fill 'Collection Name'");
+      return false;
+    }
+    
+    if (collection_total == null || collection_total == "") {
+      document.getElementsByName('collection_total')[0].placeholder='Total NFTs in collection';
+      alert("Please fill 'Total NFTs in collection'");
+      return false;
+    }
+    
+    if (price == null || price == "") {
+      document.getElementsByName('price')[0].placeholder='Price of each NFT';
+      alert("Please fill 'Price of each NFT'");
+      return false;
+    }
+
+    if (date2 == null || date2 == "") {
+      document.getElementsByName('date2')[0].placeholder='Minting Date';
+      alert("Please fill 'Minting date");
+      return false;
+    }
+    
+    return true;
+}
+</script>
+<script type="text/javascript">
+    for (let i = 0, x = 10; i < x; i++) {
+        var id_ = 'get_file_a' + String(x);
+        let element = document.getElementById('get_file_a' + String(i));
+        element.dispatchEvent(new Event("change"));
+    }
+</script>
+<div class="modal fade" id="wait" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered de-modal">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <div class="p-3 form-border">
+                    <h3>Processing your artwork</h3>
+                    <b>Please, note that it may take several minutes to process your artwork.</b> 
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div><b>The amount of time it may take depends on your internet conection and server usage</b></div>
+                    </div>
+                    <div class="spacer-single"></div>
+                    <div class="de-flex">
+                        <div><b>Do no close this window. The website will automatically redirect you to the verification window as soon as the internal tasks are done.</b></div>
+                    </div>
+                    <div class="spacer-single"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}

@@ -1,0 +1,54 @@
+<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 hovertext" data-hover="Hello, this is the tooltip">
+    {% if nft['verified'] == 1 %}<img src="/static/blue_check.png" title="The user verified social links"><i class="fa-solid fa-shield-check"></i>{% endif %}<a href='/profile/{{ nft["username"] }}'>{{ nft["artist"] }}</a>
+    <div class="nft__item">
+        <div class="author_list_pp">
+            <a href='/profile/{{ nft["username"] }}' data-bs-toggle="tooltip" data-bs-placement="top" title='{{ nft["username"] }}'>
+                <img class="lazy" title='{{ nft["nft_name"] }}' src='/users/{{ nft["username"] }}/profile_picture_thumb.png' onerror="$(this).hide();" alt="Profile image of the artist {{ nft['artist'] }}">                
+            </a>
+        </div>
+        <div class="nft__item_wrap">
+            <div class="nft__item_extra">
+                <div class="nft__item_buttons">
+                    {% if nft["issold"] == '1' %}
+                        <button>SOLD</button>
+                    {% else %}
+                        <button class="btn-main btn-lg" data-bs-toggle="modal" data-bs-target="#buy_now{{ nft['internal_id'] }}" style="color: black;">
+                            Buy Now
+                        </button>
+                    {% endif %}
+                    <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href='https://www.facebook.com/sharer/sharer.php?u=https://adamagic.io/show_single_nft/{{ nft["internal_id"] }}' target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                        <a href='https://twitter.com/intent/tweet?url=https://adamagic.io/show_single_nft/{{ nft["internal_id"] }}' target="_blank"><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href='mailto:?subject=I wanted you to see this site&amp;body=Check out this NFT https://adamagic.io/show_single_nft/{{nft["internal_id"]}}'><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href='/show_single_nft/{{ nft["internal_id"] }}'>
+                <div class="d-placeholder"></div>
+                <img src='/single_nfts/{{ nft["internal_id"] }}/single_nft.png' class="lazy nft__item_preview" alt="{% if nft['description'] == '' or nft['description'] == 'No description' %}Non Fungible Token still not minted. The artist is {{ nft['artist'] }} and the name of the artwork is called {{ nft['nft_name'] }}{% else %}{{ nft['description'] }}{% endif %}">
+            </a>
+        </div>
+        <div class="nft__item_info">
+            <a href='/show_single_nft/{{ nft["internal_id"] }}'>
+                <h4>{{ nft["nft_name"] }}</h4>
+            </a>
+            <div class="nft__item_click">
+                <span></span>
+            </div>
+            <div class="nft__item_price">
+                {% if nft["issold"] == '1' %}
+                <div style="color: red;">SOLD</div>
+                {% else %}
+                    {{ nft["price"] }} ADA
+                {% endif %}
+            </div>
+            <div class="nft__item_like" id='{{ nft["internal_id"] }}'>
+                <i class="fa fa-heart {% if nft['internal_id']|string in remembered_hearts %}active{% endif %}"></i><span>{{ nft["hearts"] }}</span>
+            </div>
+        </div>
+        {% if nft['username'] == username %}
+        <input onclick="window.location.href='/edit_nft/{{ nft['internal_id'] }}';" value="Edit" type="button" class="btn-main" />
+        {% endif %}
+    </div>
+</div>

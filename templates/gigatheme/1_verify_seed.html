@@ -1,0 +1,257 @@
+{% include '/includes/giga_head.html' %}
+<style>/* Import Google Font - Poppins */
+/* Import Google Font - Poppins */
+
+::selection{
+  color: #fff;
+  background: #5372F0;
+}
+.wrapper{
+  width: 496px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 25px 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.06);
+}
+.wrapper :where(.title, li, li i, .details){
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .content{
+  margin: 10px 0;
+}
+.content p{
+  font-size: 15px;
+}
+.content ul{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px;
+  margin: 12px 0;
+  border-radius: 5px;
+  border: 1px solid #a6a6a6;
+}
+.content ul  li{
+  color: #333;
+  margin: 4px 3px;
+  list-style: none;
+  border-radius: 5px;
+  background: #F2F2F2;
+  padding: 5px 8px 5px 10px;
+  border: 1px solid #e3e1e1;
+}
+.content ul li i{
+  height: 20px;
+  width: 20px;
+  color: #808080;
+  margin-left: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #dfdfdf;
+  justify-content: center;
+}
+.content ul input{
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.wrapper .details{
+  justify-content: space-between;
+}
+
+#remove_tags{
+    cursor: pointer;
+}
+
+</style>
+
+
+
+
+
+    <div id="wrapper">
+
+        <!-- header begin -->
+        {% include '/includes/giga_header.html' %}
+        <!-- header close -->
+
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+            <!-- section begin -->
+            <section id="subheader" class="text-light" data-bgimage="url(images/background/subheader.jpg) top">
+                <h1>{% if error %}{{ error }}{% endif %}</h1>
+                    <div class="center-y relative text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+									<h1>Verify your wallet seed</h1>
+                                    <h4>{%if msg %}{{msg}}{% endif %}</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+            <!-- section close -->
+            
+
+            <!-- section begin -->
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row">
+                        {% for x in range(seedphrase|length) %}
+                        <div class="col-lg-2 col-md-2 mb25">
+                            <div class="feature-box f-boxed style-3 text-center">
+                                <div class="text">
+                                    <h4>Word {{x + 1}}: {{seedphrase[x]}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section aria-label="section">
+                <div class="container">
+                    <div class="row wow fadeIn">
+                        <div class="col-lg-7 offset-lg-1">
+                            <form id="form-create-item" class="form-border" method="post" action="/verify_seed" onsubmit="order()">
+                                <div class="field-set wrapper">
+
+                                    <input autocomplete="false" name="hidden" type="text" style="display:none;" id='hidden_input'>
+
+                                    <h5>Enter the seedphrase in order</h5>
+                                    <div class="spacer-single"></div>
+
+                                    <div class="wrapper">
+                                      <div class="title">
+                                        <h2>Tags</h2>
+                                      </div>
+                                      <div class="content">
+                                        <p>Press enter or add a comma after each tag</p>
+                                        <ul id='tags' name="seed_tags" ><input id="input_tags" name="seed" type="text" spellcheck="false"></ul>
+                                      </div>
+                                      <div class="details">
+                                        <p><span>24</span> tags are remaining</p>
+                                        <div id="remove_tags" class="btn-main">Remove All</div>
+                                      </div>
+                                    </div>
+
+                                    <input type="submit" id="submit" class="btn-main" value="Submit seedphrase">
+                                    <div class="spacer-single"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- content close -->
+        <script type="text/javascript">
+            const ul = document.querySelector("#tags"),
+            input = document.querySelector("#input_tags"),
+            tagNumb = document.querySelector(".details span");
+        let maxTags = 24,
+        tags = [];
+        countTags();
+        createTag();
+        function countTags(){
+            input.focus();
+            tagNumb.innerText = maxTags - tags.length;
+        }
+        function createTag(){
+            ul.querySelectorAll("li").forEach(li => li.remove());
+            tags.slice().reverse().forEach(tag =>{
+                let liTag = `<li>${tag} <i class="uit uit-multiply" onclick="remove(this, '${tag}')"></i></li>`;
+                ul.insertAdjacentHTML("afterbegin", liTag);
+            });
+            countTags();
+        }
+        function remove(element, tag){
+            let index  = tags.indexOf(tag);
+            tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+            element.parentElement.remove();
+            countTags();
+        }
+        function addTag(e){
+            if(e.keyCode == 32){
+                let tag = e.target.value.replace(/\s+/g, ' ');
+                if(tag.length > 1 && !tags.includes(tag)){
+                    if(tags.length < 24){
+                        tag.split(',').forEach(tag => {
+                            tags.push(tag);
+                            createTag();
+                        });
+                    }
+                }
+                e.target.value = "";
+            }
+        }
+        input.addEventListener("keyup", addTag);
+        const removeBtn = document.querySelector("#remove_tags");
+        removeBtn.addEventListener("click", () =>{
+            tags.length = 0;
+            ul.querySelectorAll("li").forEach(li => li.remove());
+            countTags();
+        });
+
+        
+</script>
+
+<script type="text/javascript">
+    function order(){
+        const ttt = document.getElementById("tags").children;
+        let text = "";
+        for (let i = 0; i < ttt.length; i++) {
+          text += ttt[i].innerText + ' ';
+        }
+        console.log(text);
+
+        var msgElement = document.getElementById("hidden_input");
+        msgElement.value = text;
+
+    }
+</script>
+
+
+
+
+//         const API_URL = '/test11'
+//         // const input = document.querySelector("#tags");
+
+// const handleResponse = ({ target }) => {
+//   // Do something useful here...
+//   console.log(target.responseText)
+// };
+
+//         const handleInput = ({ target }) => {
+//             const xhr = new XMLHttpRequest();
+//             const data = new FormData();
+//             console.log('here');
+//             data.append(ul.children);
+//             console.log('hohoho', data);
+//             // xhr.addEventListener('load', handleResponse);
+//             xhr.open('POST', API_URL);
+//             xhr.send(data);
+//         };
+
+
+
+
+
+
+    }
+</script>
+
+        <a href="#" id="back-to-top"></a>
+        
+        <!-- footer begin -->
+        {% include '/includes/giga_footer.html' %}
